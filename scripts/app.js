@@ -4,33 +4,18 @@ const playerX = "x"
 const playerO = "circle"
 
 let currentPlayer
-
-// const winningCombos = [
-//   [0, 1, 2],
-//   [3, 4, 5],
-//   [6, 7, 8],
-//   [0, 3, 6],
-//   [1, 4, 7],
-//   [2, 5, 8],
-//   [0, 4, 8],
-//   [2, 4, 6]
-// ]
-
-let xCombos = []
-let oCombos = []
-
-const winningCombos = [
-    ["#cell-1", "#cell-2", "#cell-3"],
-    ["#cell-4", "#cell-5", "#cell-6"],
-    ["#cell-7", "#cell-8", "#cell-9"],
-    ["#cell-1", "#cell-4", "#cell-7"],
-    ["#cell-2", "#cell-5", "#cell-8"],
-    ["#cell-3", "#cell-6", "#cell-9"],
-    ["#cell-1", "#cell-5", "#cell-9"],
-    ["#cell-3", "#cell-5", "#cell-7"]
-]
-
 let circleTurn
+let winStatus = document.querySelector("#winStatus")
+
+let cell1 = document.querySelector("#cell-1")
+let cell2 = document.querySelector("#cell-2")
+let cell3 = document.querySelector("#cell-3")
+let cell4 = document.querySelector("#cell-4")
+let cell5 = document.querySelector("#cell-5")
+let cell6 = document.querySelector("#cell-6")
+let cell7 = document.querySelector("#cell-7")
+let cell8 = document.querySelector("#cell-8")
+let cell9 = document.querySelector("#cell-9")
 
 let cells = document.querySelectorAll(".cell")
 
@@ -43,11 +28,97 @@ function handleClick(e) {
     currentPlayer = circleTurn ? playerO : playerX
     cell.classList.add(currentPlayer)
     circleTurn = !circleTurn
+    checkWin()
+    checkDraw()
+}
+
+function checkWin() {
+if (cell1.classList.contains("x") && cell2.classList.contains("x") && cell3.classList.contains("x")) {
+  winStatus.innerText = "X wins!"
+} else if (cell1.classList.contains("circle") && cell2.classList.contains("circle") && cell3.classList.contains("circle")){
+  winStatus.innerText = "Circle wins!"
+} else if (cell4.classList.contains("x") && cell5.classList.contains("x") && cell6.classList.contains("x")) {
+  winStatus.innerText = "X wins!"
+} else if (cell4.classList.contains("circle") && cell5.classList.contains("circle") && cell6.classList.contains("circle")) {
+  winStatus.innerText = "Circle wins!"
+} else if (cell7.classList.contains("x") && cell8.classList.contains("x") && cell9.classList.contains("x")) {
+  winStatus.innerText = "X wins!"
+} else if (cell7.classList.contains("circle") && cell8.classList.contains("circle") && cell9.classList.contains("circle")) {
+  winStatus.innerText = "Circle wins!"
+} else if (cell1.classList.contains("x") && cell4.classList.contains("x") && cell7.classList.contains("x")) {
+  winStatus.innerText = "X wins!"
+} else if (cell1.classList.contains("circle") && cell4.classList.contains("circle") && cell7.classList.contains("circle")) {
+  winStatus.innerText = "Circle wins!"
+} else if (cell2.classList.contains("x") && cell5.classList.contains("x") && cell8.classList.contains("x")) {
+  winStatus.innerText = "X wins!"
+} else if (cell2.classList.contains("circle") && cell5.classList.contains("circle") && cell8.classList.contains("circle")) {
+  winStatus.innerText = "Circle wins!"
+} else if (cell3.classList.contains("x") && cell6.classList.contains("x") && cell9.classList.contains("x")) {
+  winStatus.innerText = "X wins!"
+} else if (cell3.classList.contains("circle") && cell6.classList.contains("circle") && cell9.classList.contains("circle")) {
+  winStatus.innerText = "Circle wins!"
+} else if (cell1.classList.contains("x") && cell5.classList.contains("x") && cell9.classList.contains("x")) {
+  winStatus.innerText = "X wins!"
+} else if (cell1.classList.contains("circle") && cell5.classList.contains("circle") && cell9.classList.contains("circle")) {
+  winStatus.innerText = "Circle wins!"
+} else if (cell3.classList.contains("x") && cell5.classList.contains("x") && cell7.classList.contains("x")) {
+  winStatus.innerText = "X wins!"
+} else if (cell3.classList.contains("circle") && cell5.classList.contains("circle") && cell7.classList.contains("circle")) {
+  winStatus.innerText = "Circle wins!"
+} 
+}
+
+function checkDraw() {
+  if ((cell1.classList.contains("x") || cell1.classList.contains("circle")) &&
+  (cell2.classList.contains("x") || cell2.classList.contains("circle")) &&
+  (cell3.classList.contains("x") || cell3.classList.contains("circle")) &&
+  (cell4.classList.contains("x") || cell4.classList.contains("circle")) &&
+  (cell5.classList.contains("x") || cell5.classList.contains("circle")) &&
+  (cell6.classList.contains("x") || cell6.classList.contains("circle")) &&
+  (cell7.classList.contains("x") || cell7.classList.contains("circle")) &&
+  (cell8.classList.contains("x") || cell8.classList.contains("circle")) &&
+  (cell9.classList.contains("x") || cell9.classList.contains("circle")) &&
+  (winStatus.innerText === "")) {
+    winStatus.innerText = "It's a draw!"
+  }
+}
+
+function clearBoard() {
+  let cells = document.querySelectorAll(".class")
+  cells.classList.remove("x")
+  cells.classList.remove("circle")
 }
 
 
+// clearBoard() {
+//   cell1.classList.remove("x") cell1.classList.remove("circle")
+//   cell2.classList.remove("x") cell2.classList.remove("circle")
+//   cell3.classList.remove("x") cell3.classList.remove("circle")
+//   cell4.classList.remove("x") cell4.classList.remove("circle")
+//   cell5.classList.remove("x") cell5.classList.remove("circle")
+//   cell6.classList.remove("x") cell6.classList.remove("circle")
+//   cell7.classList.remove("x") cell7.classList.remove("circle")
+//   cell8.classList.remove("x") cell8.classList.remove("circle")
+//   cell9.classList.remove("x") cell9.classList.remove("circle") 
+// }
 
 
+// if (cell1.content !== "" && cell1.content === cell2.content === cell3.content) {
+//   console.log("X wins")
+// }
+
+
+// if (cell1, cell2, cell3.classList.contains("x") === true) {
+//   console.log("True")
+// }
+
+// console.log(cell1, cell2, cell3.classList)
+
+//  if (cell1, cell2, cell3).classList.contains("x")) {
+//   console.log("True")
+// } else {
+//   console.log("False")
+// }
 
 
 // function checkWin() {
@@ -144,6 +215,16 @@ function handleClick(e) {
 // }
 // }
 
+// const winningCombos = [
+//   [0, 1, 2],
+//   [3, 4, 5],
+//   [6, 7, 8],
+//   [0, 3, 6],
+//   [1, 4, 7],
+//   [2, 5, 8],
+//   [0, 4, 8],
+//   [2, 4, 6]
+// ]
 
 // const winningCombos = [
 //     ["#cell-1", "#cell-2", "#cell-3"],
