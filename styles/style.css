@@ -1,35 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono");
+
 * {
     margin: 0 auto;
     text-align: center;
-    font-family:'Courier New', Courier, monospace
+    font-family: 'Ubuntu Mono', monospace;
+    color: rgb(131,183,170)
+    
+}
+
+header {
+    box-shadow:
+    0 0 30px 20px rgb(255,255,255),
+    0 0 100px 60px rgb(113, 192, 159),
+    0 0 140px 90px rgb(11,73,45);
 }
 
 body {
-    background-color:forestgreen;
+    background: url("../images/wp2176097-transistor-wallpapers.jpg");
+    background-size: cover;
 }
 
 h1 {
-    padding: 25px 0px 25px 0px;
+    margin: 25px 400px 25px 400px;
+    padding: 25px;
+    border: 1px solid rgb(216,125,45);
+    background-color: black;
+    opacity: 60%;
+    
+}
+
+p {
+    background-color:black;
+    border: 1px solid rgb(216,125,45);
+    margin: 10px 500px 0 500px;
+    opacity: 60%;
 }
 
 #board {
-    margin: 0 auto;
+    margin: 50px auto;
     display: grid;
-    width: 300px;
-    height: 300px;
+    width: 310px;
+    height: 310px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     /* transform: rotate(45deg); */
+    box-shadow:
+    0 0 30px 20px rgb(255,255,255),
+    0 0 60px 30px rgb(113, 192, 159),
+    0 0 90px 40px rgb(11,73,45);
 }
 
 .cell {
-    color: black;
     width: 100px;
     height: 100px;
-    line-height: 100px;
-    font-size: 28px;
     border: 2px solid black;
-    font-weight: bold;
     transition-duration: 0.5s;
 }
 
@@ -46,40 +70,38 @@ h1 {
 }
 
 .odd {
-    background-color: red;
+    background-color: rgb(52, 240, 199);
 }
 
 .even {
-    background-color: white;
+    background-color: rgb(243, 208, 51);
 }
 
 .x::before {
-    content: "☠️"
+    content: url("../images/zFT9BEy_small.png")
 }
 
 .circle::before {
-    content: "🤖"
+    content: url("../images/Cell_small.png");
 }
 
 button {
+    font-size: 18px;
+    color: rgb(224,199,125);
     margin: 30px auto 20px auto;
-    font-weight: bold;
     background-color: black;
-    color:blanchedalmond;
     height: 40px;
-    width: 100px;
-    border-radius: 15%;
-    box-shadow: 5px 5px darkslategray;
+    width: 200px;
+    opacity: 50%;
+    border: 1px solid rgb(216,125,45);
 }
 
 button:hover {
-    opacity: 50%;
+    opacity: 100%;
     transition-duration: 0.2s;
 }
 
 button:active {
-    opacity: 100%;
-    box-shadow: 0 0 darkslategray;
     transform: translateY(5px);
     transform: translateX(5px);
     transition-duration: 0.2s;
@@ -87,7 +109,16 @@ button:active {
 
 #winStatus {
     font-size: 30px;
-    font-weight: bold;
-    margin: 0 autopx;
-    position: relative;
+    margin: 0 500px 0 500px;
+    border: 1px solid rgb(216,125,45);
+    background-color: black;
+    opacity: 75%;
+}
+
+footer {
+    margin: 25px auto 25px auto;
+    box-shadow:
+    0 0 30px 20px rgb(255,255,255),
+    0 0 100px 40px rgb(113, 192, 159),
+    0 0 140px 50px rgb(11,73,45);
 }
