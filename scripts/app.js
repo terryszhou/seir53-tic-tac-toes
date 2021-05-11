@@ -6,6 +6,7 @@ const playerO = "circle"
 let currentPlayer
 let circleTurn
 let winStatus = document.querySelector("#winStatus")
+let resetBtn = document.getElementById("reset")
 
 let cell1 = document.querySelector("#cell-1")
 let cell2 = document.querySelector("#cell-2")
@@ -24,49 +25,71 @@ cells.forEach(cell => {
 })
 
 function handleClick(e) {
-    let cell = e.target
-    currentPlayer = circleTurn ? playerO : playerX
-    cell.classList.add(currentPlayer)
-    circleTurn = !circleTurn
-    checkWin()
-    checkDraw()
+  let cell = e.target
+  currentPlayer = circleTurn ? playerO : playerX
+  cell.classList.add(currentPlayer)
+  circleTurn = !circleTurn
+  checkWin()
+  checkDraw()
 }
 
 function checkWin() {
 if (cell1.classList.contains("x") && cell2.classList.contains("x") && cell3.classList.contains("x")) {
-  winStatus.innerText = "X wins!"
+  winStatus.innerText = "X wins!" 
+  stopGame()
 } else if (cell1.classList.contains("circle") && cell2.classList.contains("circle") && cell3.classList.contains("circle")){
-  winStatus.innerText = "Circle wins!"
+  winStatus.innerText = "Circle wins!" 
+  stopGame()
 } else if (cell4.classList.contains("x") && cell5.classList.contains("x") && cell6.classList.contains("x")) {
-  winStatus.innerText = "X wins!"
+  winStatus.innerText = "X wins!" 
+  stopGame()
 } else if (cell4.classList.contains("circle") && cell5.classList.contains("circle") && cell6.classList.contains("circle")) {
-  winStatus.innerText = "Circle wins!"
+  winStatus.innerText = "Circle wins!" 
+  stopGame()
 } else if (cell7.classList.contains("x") && cell8.classList.contains("x") && cell9.classList.contains("x")) {
-  winStatus.innerText = "X wins!"
+  winStatus.innerText = "X wins!" 
+  stopGame()
 } else if (cell7.classList.contains("circle") && cell8.classList.contains("circle") && cell9.classList.contains("circle")) {
-  winStatus.innerText = "Circle wins!"
+  winStatus.innerText = "Circle wins!" 
+  stopGame()
 } else if (cell1.classList.contains("x") && cell4.classList.contains("x") && cell7.classList.contains("x")) {
-  winStatus.innerText = "X wins!"
+  winStatus.innerText = "X wins!" 
+  stopGame()
 } else if (cell1.classList.contains("circle") && cell4.classList.contains("circle") && cell7.classList.contains("circle")) {
-  winStatus.innerText = "Circle wins!"
+  winStatus.innerText = "Circle wins!" 
+  stopGame()
 } else if (cell2.classList.contains("x") && cell5.classList.contains("x") && cell8.classList.contains("x")) {
-  winStatus.innerText = "X wins!"
+  winStatus.innerText = "X wins!" 
+  stopGame()
 } else if (cell2.classList.contains("circle") && cell5.classList.contains("circle") && cell8.classList.contains("circle")) {
-  winStatus.innerText = "Circle wins!"
+  winStatus.innerText = "Circle wins!" 
+  stopGame()
 } else if (cell3.classList.contains("x") && cell6.classList.contains("x") && cell9.classList.contains("x")) {
-  winStatus.innerText = "X wins!"
+  winStatus.innerText = "X wins!" 
+  stopGame()
 } else if (cell3.classList.contains("circle") && cell6.classList.contains("circle") && cell9.classList.contains("circle")) {
-  winStatus.innerText = "Circle wins!"
+  winStatus.innerText = "Circle wins!" 
+  stopGame()
 } else if (cell1.classList.contains("x") && cell5.classList.contains("x") && cell9.classList.contains("x")) {
-  winStatus.innerText = "X wins!"
+  winStatus.innerText = "X wins!" 
+  stopGame()
 } else if (cell1.classList.contains("circle") && cell5.classList.contains("circle") && cell9.classList.contains("circle")) {
-  winStatus.innerText = "Circle wins!"
+  winStatus.innerText = "Circle wins!" 
+  stopGame()
 } else if (cell3.classList.contains("x") && cell5.classList.contains("x") && cell7.classList.contains("x")) {
-  winStatus.innerText = "X wins!"
+  winStatus.innerText = "X wins!" 
+  stopGame()
 } else if (cell3.classList.contains("circle") && cell5.classList.contains("circle") && cell7.classList.contains("circle")) {
-  winStatus.innerText = "Circle wins!"
-} 
+  winStatus.innerText = "Circle wins!" 
+  stopGame()
 }
+}
+
+function stopGame() {cells.forEach(cell => {
+  cell.removeEventListener("click", handleClick)
+})
+}
+
 
 function checkDraw() {
   if ((cell1.classList.contains("x") || cell1.classList.contains("circle")) &&
@@ -83,12 +106,59 @@ function checkDraw() {
   }
 }
 
-function clearBoard() {
-  let cells = document.querySelectorAll(".class")
-  cells.classList.remove("x")
-  cells.classList.remove("circle")
-}
+resetBtn.addEventListener("click", () => {
+  cell1.classList = "cell odd"
+  cell2.classList = "cell even"
+  cell3.classList = "cell odd"
+  cell4.classList = "cell even"
+  cell5.classList = "cell odd"
+  cell6.classList = "cell even"
+  cell7.classList = "cell odd"
+  cell8.classList = "cell even"
+  cell9.classList = "cell odd"
+  winStatus.innerText = ""
+  cells.forEach(cell => {
+    cell.addEventListener("click", handleClick, {once:true})
+})
+})
 
+// function stopGame() {
+//   board.removeEventListener("click", handleClick)
+// }
+
+
+// let board = document.getElementById("board")
+// console.log(board)
+
+// board.addEventListener("click", handleClick,)
+
+// function clearBoard() {
+//   let cells = document.querySelectorAll(".cell")
+//   cells.classList.remove("x")
+//   cells.classList.remove("circle")
+// }
+
+// resetBtn.addEventListener("click", () => {
+//   let cells = document.querySelectorAll(".cell")
+//   for (let i = 0; i <= cells.length; i++) {
+//     cells.classList.remove("x", "circle");
+//   }
+// })
+
+// let cells = document.querySelectorAll(".cell")
+
+// cells.forEach(cell => {
+//     cell.addEventListener("click", handleClick, {once:true})
+// })
+
+// function handleClick(e) {
+//     let cell = e.target
+//     currentPlayer = circleTurn ? playerO : playerX
+//     cell.classList.add(currentPlayer)
+//     circleTurn = !circleTurn
+//     checkWin()
+//     checkDraw()
+// }
 
 // clearBoard() {
 //   cell1.classList.remove("x") cell1.classList.remove("circle")

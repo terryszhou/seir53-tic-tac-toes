@@ -30,6 +30,19 @@ h1 {
     font-size: 28px;
     border: 2px solid black;
     font-weight: bold;
+    transition-duration: 0.5s;
+}
+
+.cell:hover {
+    opacity: 50%;
+    transition-duration: 0.3s;
+}
+
+.cell:active {
+    opacity: 100%;
+    transform: translateY(5px);
+    transform: translateX(5px);
+    transition-duration: 0.2s;
 }
 
 .odd {
@@ -40,22 +53,41 @@ h1 {
     background-color: white;
 }
 
-.cell:hover {
+.x::before {
+    content: "☠️"
+}
+
+.circle::before {
+    content: "🤖"
+}
+
+button {
+    margin: 30px auto 20px auto;
+    font-weight: bold;
+    background-color: black;
+    color:blanchedalmond;
+    height: 40px;
+    width: 100px;
+    border-radius: 15%;
+    box-shadow: 5px 5px darkslategray;
+}
+
+button:hover {
     opacity: 50%;
     transition-duration: 0.2s;
 }
 
-.x::before {
-    content: "X"
-}
-
-.circle::before {
-    content: "O"
+button:active {
+    opacity: 100%;
+    box-shadow: 0 0 darkslategray;
+    transform: translateY(5px);
+    transform: translateX(5px);
+    transition-duration: 0.2s;
 }
 
 #winStatus {
     font-size: 30px;
     font-weight: bold;
-    margin: 30px;
+    margin: 0 autopx;
     position: relative;
 }
