@@ -102,7 +102,6 @@ function stopGame() {
 })
 }
 
-
 function checkDraw() {
   if ((cell1.classList.contains("x") || cell1.classList.contains("circle")) &&
   (cell2.classList.contains("x") || cell2.classList.contains("circle")) &&
@@ -114,7 +113,7 @@ function checkDraw() {
   (cell8.classList.contains("x") || cell8.classList.contains("circle")) &&
   (cell9.classList.contains("x") || cell9.classList.contains("circle")) &&
   (winStatus.innerText === "--")) {
-    displayStatus.innerText = "BOO!"
+    displayStatus.innerText = "TRY AGAIN!"
     winStatus.innerText = "IT'S A DRAW!"
   }
 }
@@ -131,6 +130,7 @@ resetBtn.addEventListener("click", () => {
   cell9.classList = "cell odd"
   displayStatus.innerText = "SQUIRTS GO FIRST."
   winStatus.innerText = "--"
+  circleTurn = !circleTurn
   cells.forEach(cell => {
     cell.addEventListener("click", handleClick, {once:true})
 })
