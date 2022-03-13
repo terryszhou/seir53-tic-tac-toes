@@ -5,6 +5,8 @@ const playerO = "circle"
 
 let currentPlayer
 let circleTurn
+let music = document.getElementById("music")
+let nomusic = document.getElementById("nomusic")
 let winStatus = document.querySelector("#winStatus")
 let displayStatus = document.querySelector("#player-turn")
 let resetBtn = document.getElementById("reset")
@@ -34,6 +36,16 @@ function handleClick(e) {
   checkWin()
   checkDraw()
 }
+
+music.addEventListener("click", () => {
+  let audio = document.getElementById("audio")
+  audio.play()
+})
+
+nomusic.addEventListener("click", () => {
+  let audio = document.getElementById("audio")
+  audio.pause()
+})
 
 function changeTurnMsg() {
   if (circleTurn === true) {
